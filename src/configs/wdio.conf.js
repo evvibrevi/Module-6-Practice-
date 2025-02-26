@@ -21,6 +21,7 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
+        './../tests/test.spec.js',
         // ToDo: define location for spec files here
     ],
     // Patterns to exclude.

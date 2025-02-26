@@ -8,6 +8,6 @@
     "@wdio/visual-service": "^6.3.2"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "test": "wdio run src/configs/wdio.conf.js"
   }
 }
