@@ -1,0 +1,13 @@
+{
+  "name": "Module-6-Practice-",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/local-runner": "^9.10.1",
+    "@wdio/mocha-framework": "^9.10.1",
+    "@wdio/spec-reporter": "^9.10.1",
+    "@wdio/visual-service": "^6.3.2"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js"
+  }
+}
