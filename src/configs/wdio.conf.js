@@ -1,5 +1,16 @@
-export const config = {
-    //
+    import chai from 'chai';
+    chai.should();
+    import chaiAsPromised from 'chai-as-promised';
+
+    // Initialize Chai with WebdriverIO plugin
+    chai.use(chaiAsPromised);
+
+    global.assert = chai.assert;
+    global.expect = chai.expect;
+    global.should = chai.should;
+        
+    export const config = {
+    
     // ====================
     // Runner Configuration
     // ====================
@@ -21,6 +32,7 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
+        './../tests/test.spec.js',
         // ToDo: define location for spec files here
     ],
     // Patterns to exclude.
@@ -84,7 +96,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    // baseUrl: 'http://localhost:8080',
+    baseUrl: 'https://ej2.syncfusion.com/showcase/angular/appointmentplanner',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -100,8 +112,8 @@ export const config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // services: [],
-    //
+    services: [],
+    
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -129,13 +141,24 @@ export const config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
     },
 
     //
     // =====
     // Hooks
     // =====
+    before: function () {
+        global.assert = chai.assert;
+        global.expect = chai.expect;
+        global.should = chai.should;
+    },
+    
+    afterTest: function(test) {
+        if (test.error) {
+            browser.takeScreenshot();
+        }
+    },
     // WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
     // it and to build services around it. You can either apply a single function or an array of
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
