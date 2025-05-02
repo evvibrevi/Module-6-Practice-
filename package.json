@@ -1,13 +1,23 @@
 {
-  "name": "Module-6-Practice-",
+  "name": "module-6-practice-",
   "type": "module",
   "devDependencies": {
+    "@wdio/cli": "^9.10.1",
     "@wdio/local-runner": "^9.10.1",
     "@wdio/mocha-framework": "^9.10.1",
     "@wdio/spec-reporter": "^9.10.1",
-    "@wdio/visual-service": "^6.3.2"
+    "@wdio/visual-service": "^6.3.2",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "chai-http": "^5.1.1",
+    "expect-webdriverio": "^5.1.0"
   },
   "scripts": {
     "test": "wdio run src/configs/wdio.conf.js"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
